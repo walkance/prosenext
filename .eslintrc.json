@@ -1,0 +1,51 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "**/*.d.ts"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "plugins": [
+        "@typescript-eslint",
+        "prettier"
+      ],
+      "rules": {
+        "id-match": ["error", "^[a-zA-Z0-9_$]*$"],
+        "prettier/prettier": "error",
+        "@typescript-eslint/no-empty-function": "off",
+        "semi": [
+          "error",
+          "always"
+        ],
+        "no-empty-function": "off",
+        "no-prototype-builtins": "off",
+        "no-console": [
+          2
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+      ],
+      "rules": {}
+    }
+  ]
+}

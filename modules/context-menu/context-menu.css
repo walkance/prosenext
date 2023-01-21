@@ -1,0 +1,28 @@
+
+.context-menu {
+  --context-menu-background-color: white;
+  --context-menu-border-color: #cecece;
+  --context-menu-font-color: #3d3d3d;
+  display: flex;
+  color: var(--context-menu-font-color);
+  flex-direction: column;
+  min-width: 100px;
+  min-height: 20px;
+  width: auto;
+  background: var(--context-menu-background-color);
+  border: 1px solid var(--context-menu-border-color);
+  border-radius: 2px;
+  position: absolute;
+  z-index: 9000;
+}
+
+.dropdown-menu .event-details-dropdown-text   svg {
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+  margin-right: 10px;
+}
+
+.dropdown-menu .event-details-dropdown-text svg path {
+  fill: var(--context-menu-font-color);
+}

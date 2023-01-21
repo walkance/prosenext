@@ -1,0 +1,43 @@
+
+.ProseMirror-menubar-wrapper {
+    border: 1px solid silver;
+    outline: none;
+}
+
+.ProseMirror {
+    --selection-color: #8cf;
+    --image-placeholder-color: #BBBBBB;
+    padding: 5px 15px;
+}
+
+.ProseMirror-selectednode {
+    /*outline: 2px solid #8cf;*/
+    outline: none !important;
+    border: 2px solid var(--selection-color) !important;
+}
+
+li.ProseMirror-selectednode {
+    outline: none; }
+
+li.ProseMirror-selectednode:after {
+    content: "";
+    position: absolute;
+    left: -32px;
+    right: -2px;
+    top: -2px;
+    bottom: -2px;
+    border: 2px solid var(--selection-color);
+    pointer-events: none;
+}
+
+/* Стиль placeholder for image upload */
+.ProseMirror .prosemirror-placeholder-image-upload {
+    margin-left: 10px;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: 3px solid var(--image-placeholder-color);
+    border-top-color: var(--selection-color);
+    -webkit-animation: spin 0.5s infinite linear;
+    animation: spin 0.5s infinite linear;
+}

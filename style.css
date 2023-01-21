@@ -1,0 +1,47 @@
+@import 'prosemirror-view/style/prosemirror.css';
+@import 'prosemirror-gapcursor/style/gapcursor.css';
+@import "./styles/prosemirror-styles/menu.css";
+@import "/styles/prosemirror-styles/setup.css";
+@import "./styles/cobalt-styles/colors.css";
+@import "./styles/cobalt-styles/dropdown.css";
+/*@import "./styles/cobalt-styles/prose-cobalt.css";*/
+
+html, body {
+  font-family: sans-serif;
+}
+
+.ProseMirror[data-placeholder]::before {
+  color: var(--main-placeholder-color);
+  position: absolute;
+  content: attr(data-placeholder);
+  pointer-events: none;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: 10px;
+}
+
+.ProseMirror {
+    border: 1px solid rgb(217, 222, 238);
+    border-radius: 2px;
+    padding: 10px;
+    outline: none;
+    --selection-color: var(--secondary-theme-color);
+}
+
+.wrap-container {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+#editor {
+  width: 50%;
+}
+
+#view {
+  width: 50%;
+}
