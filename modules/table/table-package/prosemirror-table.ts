@@ -9,8 +9,6 @@
 // compute the start position of the table and offset positions passed
 // to or gotten from this structure by that amount.
 
-import {NodeView} from 'prosemirror-view';
-
 let readFromCache, addToCache;
 // Prefer using a weak map to cache table maps. Fall back on a
 // fixed-size cache if that's not supported.
@@ -183,7 +181,7 @@ export class ProsemirrorTable {
 
   // :: (Node) → TableMap
   // Find the table map for the given table node.
-  static get(table: any): ProsemirrorTable {
+  static get(table: ProsemirrorTable): ProsemirrorTable {
     return readFromCache(table) || addToCache(table, computeMap(table));
   }
 }

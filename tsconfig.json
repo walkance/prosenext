@@ -6,13 +6,16 @@
       "dom.iterable",
       "esnext"
     ],
+    "allowJs": true,
     "module": "esnext",
     "moduleResolution": "node",
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
-    "types": [],
+    "types": [
+      "node"
+    ],
     "skipLibCheck": true,
     "outDir": "dist",
     "strict": false,
@@ -24,11 +27,6 @@
       "node_modules/@types"
     ]
   },
-//  "paths": {
-//    "prosemirror-example-setup/**/**": [
-//      "node_modules/prosemirror-example-setup/**/**"
-//    ]
-//  },
   "files": [
     "index.ts", "custom.d.ts"
   ],

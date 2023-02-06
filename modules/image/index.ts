@@ -1,4 +1,3 @@
-import '/styles/prosemirror-styles/image.css';
 import imgFileIcon from '@fortawesome/fontawesome-free/svgs/solid/file-image.svg';
 
 import {Plugin} from 'prosemirror-state';
@@ -11,7 +10,6 @@ import {startImageUpload} from './utils';
 import {Node, Schema} from 'prosemirror-model';
 import {ProseNextPlugin} from '../core/plugin.interface';
 import {ProseNext} from '../core';
-import {MenuItem} from 'prosemirror-menu';
 
 export class ImagePlugin implements ProseNextPlugin {
   private schema: Schema;

@@ -60,7 +60,7 @@ export function updateColumns(
   let totalWidth = 0,
     fixedWidth = true;
   let nextDOM = colgroup.firstChild as Node & HTMLElement;
-  const row = (node as any).firstChild as Node;
+  const row = (node as Node).firstChild as Node;
   for (let i = 0, col = 0; i < row.childCount; i++) {
     const {colspan, colwidth} = row.child(i).attrs;
     for (let j = 0; j < colspan; j++, col++) {
@@ -106,7 +106,7 @@ export function updateRows(
   let totalHeight = 0,
     fixedHeight = true;
   let nextDOM = colgroup.firstChild as Node & HTMLElement;
-  const row = (node as any).firstChild as Node;
+  const row = (node as Node).firstChild as Node;
   for (let i = 0, col = 0; i < row.childCount; i++) {
     const {colspan, rowheight} = row.child(i).attrs;
     for (let j = 0; j < colspan; j++, col++) {

@@ -4,6 +4,7 @@
 @import "/styles/prosemirror-styles/setup.css";
 @import "./styles/cobalt-styles/colors.css";
 @import "./styles/cobalt-styles/dropdown.css";
+@import '/styles/prosemirror-styles/image.css';
 /*@import "./styles/cobalt-styles/prose-cobalt.css";*/
 
 html, body {

@@ -143,7 +143,7 @@ function wrapListItem(
 }
 
 export function buildMenuItems(schema: Schema): MenuItemResult {
-  const r: MenuItemResult = {} as any;
+  const r: MenuItemResult = {} as MenuItemResult;
   let mark: MarkType | undefined;
   if ((mark = schema.marks.strong))
     r.toggleStrong = markItem(mark, {
@@ -188,7 +188,7 @@ export function buildMenuItems(schema: Schema): MenuItemResult {
     });
   if ((node = schema.nodes.heading))
     for (let i = 1; i <= 10; i++)
-      (r as any)['makeHead' + i] = blockTypeItem(node, {
+      r['makeHead' + i] = blockTypeItem(node, {
         title: 'Change to heading ' + i,
         label: 'Level ' + i,
         attrs: {level: i},
@@ -263,5 +263,5 @@ export function item(label, cmd, icon?: string) {
       width: 16,
       path: icon || '',
     },
-  } as any);
+  } as MenuItemSpec);
 }

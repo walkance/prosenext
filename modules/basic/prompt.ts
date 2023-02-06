@@ -101,14 +101,15 @@ function getValues(
 }
 
 function reportInvalid(dom: HTMLElement, message: string) {
-  // FIXME this is awful and needs a lot more work
-  const parent = dom.parentNode!;
-  const msg = parent.appendChild(document.createElement('div'));
-  msg.style.left = dom.offsetLeft + dom.offsetWidth + 2 + 'px';
-  msg.style.top = dom.offsetTop - 5 + 'px';
-  msg.className = 'ProseMirror-invalid';
-  msg.textContent = message;
-  setTimeout(() => parent.removeChild(msg), 1500);
+  const parent = dom.parentNode;
+  if (parent) {
+    const msg = parent.appendChild(document.createElement('div'));
+    msg.style.left = dom.offsetLeft + dom.offsetWidth + 2 + 'px';
+    msg.style.top = dom.offsetTop - 5 + 'px';
+    msg.className = 'ProseMirror-invalid';
+    msg.textContent = message;
+    setTimeout(() => parent.removeChild(msg), 1500);
+  }
 }
 
 /// The type of field that `openPrompt` expects to be passed to it.
@@ -119,7 +120,7 @@ export abstract class Field {
     /// @internal
     readonly options: {
       /// The starting value for the field.
-      value?: any;
+      value?: unknown;
 
       /// The label for the field.
       label: string;

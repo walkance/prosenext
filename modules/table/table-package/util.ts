@@ -94,7 +94,7 @@ export function nextCell($pos, axis, dir) {
 }
 
 export function setAttr(attrs, name, value) {
-  const result: Record<string, any> = {};
+  const result: Record<string, number[]> = {};
   for (const prop in attrs) result[prop] = attrs[prop];
   result[name] = value;
   return result;

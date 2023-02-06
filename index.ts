@@ -27,6 +27,7 @@ const proseNext = new ProseNext({
       // console.debug('html', elem.innerHTML);
       // console.debug('json', proseNext.editorView.state.doc.toJSON());
       const json = proseNext.editorView.state.doc.toJSON();
+      console.log(proseNext.getHTMLFromState());
       updateView(json);
     },
   },
