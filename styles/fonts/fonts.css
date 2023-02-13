@@ -1,0 +1,20 @@
+@font-face {
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 400;
+  src: url("./Ubuntu-Medium.ttf") format("ttf");
+}
+
+/*@font-face {*/
+/*  font-family: Ubuntu;*/
+/*  font-style: normal;*/
+/*  font-weight: 600;*/
+/*  url("./Ubuntu-Bold.ttf");*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: Ubuntu;*/
+/*  font-style: italic;*/
+/*  font-weight: 400;*/
+/*  url("./Ubuntu-Italic.ttf");*/
+/*}*/

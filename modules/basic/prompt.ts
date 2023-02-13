@@ -170,7 +170,7 @@ export class TextField extends Field {
     const input = document.createElement('input');
     input.type = 'text';
     input.placeholder = this.options.label;
-    input.value = this.options.value || '';
+    input.value = (this.options.value as string) || '';
     input.autocomplete = 'off';
     return input;
   }

@@ -14,6 +14,10 @@ module.exports = env => {
           exclude: /node_modules/,
         },
         {
+          test: /\.html$/i,
+          loader: "html-loader",
+        },
+        {
           test: /\.scss$/i,
           use: [
             MiniCssExtractPlugin.loader,

@@ -3,12 +3,13 @@
 @import "./styles/prosemirror-styles/menu.css";
 @import "/styles/prosemirror-styles/setup.css";
 @import "./styles/cobalt-styles/colors.css";
-@import "./styles/cobalt-styles/dropdown.css";
 @import '/styles/prosemirror-styles/image.css';
+@import "./styles/fonts/fonts.css";
+
 /*@import "./styles/cobalt-styles/prose-cobalt.css";*/
 
 html, body {
-  font-family: sans-serif;
+  font-family: Ubuntu, sans-serif;
 }
 
 .ProseMirror[data-placeholder]::before {
@@ -45,4 +46,12 @@ html, body {
 
 #view {
   width: 50%;
+}
+
+code {
+  /*background: black;*/
+  display: inline-flex;
+  padding: 5px;
+  /*color: white;*/
+  /*border-radius: 2px;*/
 }

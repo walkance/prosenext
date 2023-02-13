@@ -4,7 +4,8 @@ import {MenuItem} from 'prosemirror-menu';
 import {EditorView} from 'prosemirror-view';
 import {ProseNextPlugin} from '../core/plugin.interface';
 import {ProseNext} from '../core';
-import {createElement} from '../utils/create-element';
+import {createElement} from '../utils';
+import {Dropdown} from './dropdown/dropdown';
 
 const template = `
 <div class="dropdown-menu">
@@ -16,9 +17,8 @@ const template = `
 
 const rowFactory = ({text, customIcon, onClick}) => {
   const iconElem = customIcon ? customIcon.path : '';
-  const elem =
-    createElement(`<div class="dropdown-action task-extras-dropdown-item event-details-dropdown-item">
-<div class="event-details-dropdown-text">${iconElem}${text}</div></div>`);
+  const elem = createElement(`<div class="dropdown-row">
+            <div class="dropdown-row__dropdown-text">${iconElem}${text}</div></div>`);
   if (onClick) {
     elem.addEventListener('click', onClick);
   }
@@ -28,6 +28,8 @@ const rowFactory = ({text, customIcon, onClick}) => {
 /** Plugin for context menu */
 class ContextMenu {
   public elem;
+  dropdown: Dropdown;
+  trigger: HTMLElement;
   private listener = event => {
     if (!this.elem.contains(event.target)) {
       this.visible(false);
@@ -35,13 +37,16 @@ class ContextMenu {
   };
 
   constructor(private menu: MenuItem[], private editor: EditorView) {
-    this.elem = createElement(template);
-    this.visible(false);
-    document.body.appendChild(this.elem);
-    editor.dom.addEventListener('click', (e: MouseEvent) => {
-      // e.preventDefault();
-      this.visible(false);
+    this.dropdown = new Dropdown({
+      fixedDropdownContentWidth: 180,
     });
+    this.elem = createElement(template);
+    this.trigger = document.createElement('div');
+    this.dropdown.elem.style.position = 'absolute';
+    document.body.appendChild(this.dropdown.elem);
+    this.dropdown.setSlotContent('dropdown__content', this.elem);
+    this.dropdown.setSlotContent('dropdown__trigger', this.trigger);
+    this.visible(false);
     editor.dom.addEventListener('contextmenu', (e: MouseEvent) => {
       e.preventDefault();
       this.visible(true, {
@@ -72,27 +77,17 @@ class ContextMenu {
       });
   }
 
-  stopListen() {
-    document.removeEventListener('click', this.listener);
-  }
-
-  startListen() {
-    this.stopListen();
-    document.addEventListener('click', this.listener);
-  }
-
   visible(state: boolean, position?: {left: number; top: number}) {
-    this.elem.style.display = state ? 'flex' : 'none';
-    this.applyMenu(this.menu, this.editor);
-    if (state) {
-      this.startListen();
-    } else {
-      this.stopListen();
-    }
     if (position) {
-      this.elem.style.left = 40 - this.elem.clientWidth + position.left + 'px';
-      this.elem.style.top = position.top + 10 + 'px';
+      this.dropdown.elem.style.left = position.left + 'px';
+      this.dropdown.elem.style.top = position.top + 10 + 'px';
     }
+    if (state) {
+      this.dropdown.open();
+    } else {
+      this.dropdown.close();
+    }
+    this.applyMenu(this.menu, this.editor);
   }
 }
 
